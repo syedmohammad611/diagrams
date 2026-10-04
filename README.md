@@ -15,7 +15,7 @@ simulation platform. Files are numbered 1–28 in presentation order.
 | 8 | `08_layer_diagram` | Layered architecture |
 | 9 | `09_er_diagram_telemetry` | Telemetry database ER diagram |
 | 10 | `10_structure_chart` | Functional decomposition structure chart |
-| 11 | `11_system_sequence_diagram` | **SSD** — black box, all 17 use cases |
+| 11 | `11_system_sequence_diagram` | **SSD** — 4 pages: all 17 use cases, then one per actor |
 | 12 | `12_sequence_telemetry` | Sequence: real-time telemetry flow |
 | 13 | `13_sequence_command` | Sequence: command execution |
 | 14 | `14_sequence_mission` | Sequence: autonomous mission execution |
@@ -33,6 +33,18 @@ simulation platform. Files are numbered 1–28 in presentation order.
 | 26 | `26_dfd_level2_compute_guidance` | Data flow, Level 2: P3 Compute Guidance |
 | 27 | `27_interaction_overview_diagram` | Interaction overview diagram |
 | 28 | `28_algorithm_design_flow` | Guidance loop algorithm design |
+
+## Two presentations of the SSD, pending a decision
+
+`11_system_sequence_diagram` holds **four pages**. Page 1 is the consolidated
+diagram covering every use case in one view. Pages 2 to 4 show one actor each —
+Operator, Data Analyst, RL Engineer — with the actor drawn as the stick figure
+the use case diagram uses.
+
+They carry **identical content**: the three per-actor pages together hold exactly
+the messages of page 1, 14 + 10 + 3 = 27, and `check_diagrams.py` asserts that in
+both directions. So the choice between them is a choice of layout, not of
+substance. One presentation will be kept once the supervisor has been consulted.
 
 ## The SSD and the sequence diagrams are different artifacts
 

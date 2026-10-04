@@ -73,8 +73,20 @@ def internal(name):
 
 
 # ---------------------------------------------------------------- 1 and 2 ---
+def consolidated():
+    """The whole-system SSD page of file 11.
+
+    The file also holds the per-actor pages, so this picks the one that is not
+    named "SSD: <actor>" rather than assuming a single page.
+    """
+    whole = [q for q in pages(find("11_")) if not (q[0] or "").startswith("SSD:")]
+    if len(whole) != 1:
+        raise SystemExit("file 11 has %d consolidated pages, expected 1" % len(whole))
+    return whole[0]
+
+
 def check_sequence(bad):
-    ssd = one(find("11_"))
+    ssd = consolidated()
     uc = one(find("01_"))
     _n, uc_nodes, _e = uc
     uc_ids = {re.match(r"(UC-\d\d)", v).group(1)
@@ -191,9 +203,74 @@ def check_dfd(bad):
                        % (parent, f[0], f[1]))
 
 
+
+def ssd_messages(page):
+    """(direction, label) per message, with the actor resolved by name."""
+    _n, nodes, edges = page
+    lifelines = {k: v for k, (v, st) in nodes.items() if "umlLifeline" in st}
+    out = set()
+    for a, b, label in edges:
+        if a not in lifelines or b not in lifelines:
+            continue
+        sv, tv = lifelines[a], lifelines[b]
+        if sv == tv:
+            out.add(("self", label))
+        elif tv.startswith(":"):
+            out.add((sv, label))
+        else:
+            out.add((tv, label))
+    return out
+
+
+def check_per_actor(bad):
+    """The three per-actor pages must together equal the consolidated page.
+
+    That is what makes the two presentations a real choice rather than a choice
+    between a diagram and a better diagram, so it is asserted in BOTH
+    directions. The consolidated page is page 1; the per-actor pages are the
+    ones whose name begins "SSD:".
+    """
+    pp = pages(find("11_"))
+    if len(pp) == 1:
+        print("  per-actor SSD pages: none")
+        return
+    whole = [q for q in pp if not (q[0] or "").startswith("SSD:")]
+    parts = [q for q in pp if (q[0] or "").startswith("SSD:")]
+    if len(whole) != 1:
+        bad.append("expected exactly one consolidated SSD page, found %d"
+                   % len(whole))
+        return
+    big = ssd_messages(whole[0])
+    union = set()
+    for q in parts:
+        got = ssd_messages(q)
+        actor = (q[0] or "").split(":", 1)[1].strip()
+        foreign = {m for m in got if m[0] not in (actor, "self")}
+        if foreign:
+            bad.append("page %r carries %d message(s) belonging to another "
+                       "actor, e.g. %r" % (q[0], len(foreign),
+                                           sorted(foreign)[0]))
+        overlap = union & got
+        if overlap:
+            bad.append("page %r repeats %d message(s) already on another "
+                       "per-actor page" % (q[0], len(overlap)))
+        union |= got
+        print("  %-22s %d messages" % (q[0], len(got)))
+    for m in sorted(big - union):
+        bad.append("consolidated message %r (%s) is on no per-actor page"
+                   % (m[1][:48], m[0]))
+    for m in sorted(union - big):
+        bad.append("per-actor message %r (%s) is not on the consolidated page"
+                   % (m[1][:48], m[0]))
+    if not bad:
+        print("  per-actor pages reunite exactly into the consolidated page "
+              "(%d messages)" % len(big))
+
+
 def main():
     bad = []
     check_sequence(bad)
+    check_per_actor(bad)
     check_dfd(bad)
     if bad:
         print("\nFAIL (%d):" % len(bad))

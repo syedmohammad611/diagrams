@@ -3,54 +3,56 @@
 UML and design diagrams for **IntelliSwarm**, the multi-UAV defensive
 simulation platform.
 
-The numeric prefix is the **presentation order**: requirements first, then the
-static structure, then interaction, state, activity and data flow. Each of the
-four newest artifacts opens the group it introduces rather than sitting at the
-end of the set — the brief and fully dressed use cases follow the use case
-diagram, the nine SSDs open the sequence group, and the whole-system activity
-diagram opens the activity group.
+The numeric prefix is the **presentation order**: requirements, then static
+structure, then interaction, state, activity, data flow, and finally the
+algorithm. The set is 1–21 with no gaps.
 
-The **SRS figure** column maps each file to `IntelliSwarm_SRS_v4.docx`. The
-prefix is no longer that number, so the mapping is written down here. The
-document's figures 15, 19 and 25 — the communication diagram, the sensor-fusion
-activity diagram and the RL training flow — have **no source in this
-repository**; they were removed in `1655109`.
+| # | file | diagram |
+|---|---|---|
+| 1 | `01_use_case_diagram` | Use case diagram — 3 actors, 17 use cases |
+| 2 | `02_class_ros2_nodes` | ROS 2 node class diagram |
+| 3 | `03_class_backend_services` | Backend services class diagram |
+| 4 | `04_class_frontend_models` | Frontend data models class diagram |
+| 5 | `05_component_diagram` | Component diagram |
+| 6 | `06_deployment_diagram` | Deployment diagram |
+| 7 | `07_domain_model` | Conceptual domain model |
+| 8 | `08_layer_diagram` | Layered architecture |
+| 9 | `09_er_diagram_telemetry` | Telemetry database ER diagram |
+| 10 | `10_structure_chart` | Functional decomposition structure chart |
+| 11 | `11_system_sequence_diagram` | System Sequence Diagram — all 17 use cases |
+| 12 | `12_state_drone` | State machine: drone operational states |
+| 13 | `13_state_system` | State machine: system lifecycle |
+| 14 | `14_activity_system_overview` | Activity diagram of the whole system |
+| 15 | `15_activity_mission` | Activity: mission execution |
+| 16 | `16_dfd_level0_context` | Data flow, Level 0 (context) |
+| 17 | `17_dfd_level1` | Data flow, Level 1 |
+| 18 | `18_dfd_level2_fuse_sensor_data` | Data flow, Level 2: P2 Fuse Sensor Data |
+| 19 | `19_dfd_level2_compute_guidance` | Data flow, Level 2: P3 Compute Guidance |
+| 20 | `20_interaction_overview_diagram` | Interaction overview diagram |
+| 21 | `21_algorithm_design_flow` | Guidance loop algorithm design |
 
-| # | file | diagram | SRS figure |
-|---|---|---|---|
-| 1 | `01_use_case_diagram` | Use case diagram | 1 |
-| 2 | `02_use_case_high_level` | High level (brief) use cases, all eighteen | — |
-| 3 | `03_use_case_expanded` | Expanded (fully dressed) use case, two column | — |
-| 4 | `04_class_ros2_nodes` | ROS 2 node class diagram | 2 |
-| 5 | `05_class_backend_services` | Backend services class diagram | 3 |
-| 6 | `06_class_frontend_models` | Frontend data models class diagram | 4 |
-| 7 | `07_component_diagram` | Component diagram | 5 |
-| 8 | `08_deployment_diagram` | Deployment diagram | 6 |
-| 9 | `09_domain_model` | Conceptual domain model | 7 |
-| 10 | `10_layer_diagram` | Layered architecture | 8 |
-| 11 | `11_er_diagram_telemetry` | Telemetry database ER diagram | 9 |
-| 12 | `12_structure_chart` | Functional decomposition structure chart | 10 |
-| 13 | `13_system_sequence_diagrams` | Nine SSDs, one per user interaction | — |
-| 14 | `14_sequence_telemetry` | SSD: real time telemetry flow | 11 |
-| 15 | `15_sequence_command` | SSD: command execution | 12 |
-| 16 | `16_sequence_mission` | SSD: autonomous mission execution | 13 |
-| 17 | `17_sequence_sensor_fusion` | SSD: sensor fusion pipeline | 14 |
-| 18 | `18_state_drone` | State machine: drone operational states | 16 |
-| 19 | `19_state_system` | State machine: system lifecycle | 17 |
-| 20 | `20_activity_system_overview` | Activity diagram of the whole system | — |
-| 21 | `21_activity_mission` | Activity: 2v2 mission execution | 18 |
-| 22 | `22_sequence_base_spawn_sensor` | SSD: base placement, spawn and sensing | 20 |
-| 23 | `23_sequence_cyberattack_threat` | SSD: cyberattack application | 21 |
-| 24 | `24_sequence_logging_replay` | SSD: logging and replay | 22 |
-| 25 | `25_data_flow_diagram_dfd` | Level 1 data flow diagram | 23 |
-| 26 | `26_interaction_overview_diagram` | Interaction overview diagram | 24 |
-| 27 | `27_algorithm_design_flow` | Guidance loop algorithm design | 26 |
+## Artifacts that are NOT diagrams
 
-`02` and `03` follow Larman, *Applying UML and Patterns*, §6.5 (brief, casual,
-fully dressed) and §6.6 (the two-column variation). Those are written use case
-formats rather than graph diagrams, which is why they are tables; `01` is the
-use case *diagram* and is a separate artifact.
+**High-level use cases and expanded (fully dressed) use cases are TABLES**, and
+they live in the SRS, not here. They are written use case formats — Larman,
+*Applying UML and Patterns*, §6.5 and §6.6 — not graph diagrams. Files that drew
+them as diagrams were removed.
 
-Sources are draw.io (`.drawio`); `png/` and `png_transparent/` hold 300 DPI
-exports regenerated by `export_png.py`. The four newest files have no exports
-yet.
+## Data flow levels
+
+Larman does not cover DFDs at all, so the levelling rule comes from structured
+analysis: decompose a process until it is a **functional primitive**. Only P2
+(Fuse Sensor Data) and P3 (Compute Guidance) fail that test, so only they have a
+Level 2. P1, P4 and P5 are primitive and are left alone deliberately.
+
+`check_dfd_balance.py` verifies Level 0 against Level 1, and each Level 2
+against its parent process. Run it over files 16–19 after any DFD edit.
+
+## Sequence diagrams
+
+The eight separate sequence diagrams were replaced by the single
+`11_system_sequence_diagram`, which covers every use case in one black-box view.
+`check_ssd.py` enforces that it stays a black box: one system lifeline, every
+message touching it, and every cited use case present in `01_use_case_diagram`.
+
+Sources are draw.io (`.drawio`). PNG exports are regenerated by `export_png.py`.

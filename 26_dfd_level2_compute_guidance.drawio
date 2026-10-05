@@ -1,40 +1,67 @@
-<mxfile host="IntelliSwarm">
-  <diagram name="Level 2 Data Flow Diagram (P3 Compute Guidance)" id="dfd2p3">
-    <mxGraphModel dx="1400" dy="850" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1960" pageHeight="1000" background="none" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="t" value="Level 2 Data Flow Diagram: P3 Compute Guidance" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Helvetica;fontColor=#000000;fontSize=26;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="60" y="44" width="1300" height="40" as="geometry"/></mxCell>
-        <mxCell id="Y_P2" value="P2: Fuse Sensor Data" style="shape=rect;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;dashed=1;" vertex="1" parent="1"><mxGeometry x="60" y="420" width="280" height="110" as="geometry"/></mxCell>
-        <mxCell id="Y_GZ" value="Gazebo Physics" style="shape=rect;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;dashed=1;" vertex="1" parent="1"><mxGeometry x="1600" y="250" width="280" height="110" as="geometry"/></mxCell>
-        <mxCell id="Y_P4" value="P4: Log Flight Metrics" style="shape=rect;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;dashed=1;" vertex="1" parent="1"><mxGeometry x="1600" y="620" width="280" height="110" as="geometry"/></mxCell>
-        <mxCell id="D3" value="D3: Defended Asset Geometry" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=17;" vertex="1" parent="1"><mxGeometry x="50" y="140" width="320" height="120" as="geometry"/></mxCell>
-        <mxCell id="P31" value="3.1
-Rank Threats" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;" vertex="1" parent="1"><mxGeometry x="430" y="180" width="290" height="130" as="geometry"/></mxCell>
-        <mxCell id="P32" value="3.2
-Assign Defender
-to Attacker" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;" vertex="1" parent="1"><mxGeometry x="430" y="540" width="290" height="130" as="geometry"/></mxCell>
-        <mxCell id="P33" value="3.3
-Solve Defender Lead
-Collision Intercept" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;" vertex="1" parent="1"><mxGeometry x="820" y="180" width="290" height="140" as="geometry"/></mxCell>
-        <mxCell id="P34" value="3.4
-Compute Attacker Field
-and Evasion" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;" vertex="1" parent="1"><mxGeometry x="820" y="540" width="290" height="140" as="geometry"/></mxCell>
-        <mxCell id="P35" value="3.5
-Publish Trajectory
-Setpoints" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=18;" vertex="1" parent="1"><mxGeometry x="1210" y="360" width="290" height="140" as="geometry"/></mxCell>
-        <mxCell id="d1" value="Estimated Tracks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="Y_P2" target="P31"><mxGeometry x="-0.2" relative="1" as="geometry"/></mxCell>
-        <mxCell id="d2" value="Estimated Tracks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="Y_P2" target="P32"><mxGeometry x="-0.2" relative="1" as="geometry"/></mxCell>
-        <mxCell id="e1" value="Asset Position" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="D3" target="P31"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="e2" value="Ranked Threats" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="P31" target="P32"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="e3" value="Defender Assignment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="P32" target="P33"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="e4" value="Attacker Objective" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="P32" target="P34"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="e5" value="Defender Velocity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="P33" target="P35"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="e6" value="Attacker Velocity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" edge="1" parent="1" source="P34" target="P35"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="f1" value="Trajectory Setpoints" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="P35" target="Y_GZ"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="f2" value="Commanded Actions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="P35" target="Y_P4"><mxGeometry x="0" relative="1" as="geometry"/></mxCell>
-        <mxCell id="n" value="P3 decomposed. Guidance reads the fused estimate only, never the opposing team&#x27;s true state, which is why no flow reaches these processes from Gazebo Physics. Its three boundary flows match P3&#x27;s on the Level 1 page." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontFamily=Helvetica;fontColor=#000000;fontSize=17;" vertex="1" parent="1"><mxGeometry x="60" y="880" width="1800" height="70" as="geometry"/></mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="Level 2 Data Flow Diagram (P3 Compute Guidance)" id="dfd2p3">
+        <mxGraphModel dx="2980" dy="1400" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1960" pageHeight="1000" background="none" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Y_P2" parent="1" style="shape=rect;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;dashed=1;" value="&lt;font&gt;P2: Fuse Sensor Data&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="110" width="280" x="-74" y="384" as="geometry"/>
+                </mxCell>
+                <mxCell id="Y_GZ" parent="1" style="shape=rect;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;dashed=1;" value="Gazebo Physics" vertex="1">
+                    <mxGeometry height="110" width="280" x="1047" y="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="Y_P4" parent="1" style="shape=rect;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;dashed=1;" value="P4: Log Flight Metrics" vertex="1">
+                    <mxGeometry height="110" width="280" x="1624" y="725" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;" value="&lt;font&gt;D3: Defended Asset Geometry&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="120" width="320" x="1012" y="185" as="geometry"/>
+                </mxCell>
+                <mxCell id="P31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;" value="&lt;font&gt;3.1 Rank Threats&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="130" width="290" x="430" y="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="P32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;" value="&lt;font&gt;3.2 Assign Defender to Attacker&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="130" width="290" x="430" y="482" as="geometry"/>
+                </mxCell>
+                <mxCell id="P33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;" value="&lt;font&gt;3.3 Solve Defender Lead Collision Intercept&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="140" width="290" x="1042" y="477" as="geometry"/>
+                </mxCell>
+                <mxCell id="P34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;" value="&lt;font&gt;3.4 Compute Attacker Field and Evasion&lt;/font&gt;" vertex="1">
+                    <mxGeometry height="140" width="290" x="430" y="710" as="geometry"/>
+                </mxCell>
+                <mxCell id="P35" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;align=center;fontStyle=1;fontSize=20;" value="3.5 Publish Trajectory Setpoints" vertex="1">
+                    <mxGeometry height="140" width="290" x="1042" y="710" as="geometry"/>
+                </mxCell>
+                <mxCell id="d1" edge="1" parent="1" source="Y_P2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" target="P31" value="Estimated Tracks">
+                    <mxGeometry relative="1" x="-0.2" as="geometry"/>
+                </mxCell>
+                <mxCell id="d2" edge="1" parent="1" source="Y_P2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" target="P32" value="Estimated Tracks">
+                    <mxGeometry relative="1" x="-0.2" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" edge="1" parent="1" source="D3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" target="P31" value="Asset Position">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" edge="1" parent="1" source="P31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="P32" value="Ranked Threats">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" edge="1" parent="1" source="P32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="P33" value="Defender Assignment">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" edge="1" parent="1" source="P32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="P34" value="Attacker Objective">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" edge="1" parent="1" source="P33" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="P35" value="Defender Velocity">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" edge="1" parent="1" source="P34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="P35" value="Attacker Velocity">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f1" edge="1" parent="1" source="P35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Y_GZ" value="Trajectory Setpoints">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="f2" edge="1" parent="1" source="P35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;strokeWidth=2;endArrow=block;endFill=1;fontSize=18;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Y_P4" value="Commanded Actions">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
